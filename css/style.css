@@ -101,19 +101,62 @@ main{
 .left_col .notifiche{
   height: 70px;
   background-color: #8edafc;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.left_col .notifiche .mute{
+  background-color: white;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #8edafc;
+  margin-right: 10px;
+}
+.left_col .notifiche .dettaglio_notifiche h4{
+  margin-bottom: 2px;
+}
+.left_col .notifiche .dettaglio_notifiche a{
+  color: black;
+  font-size: 14px;
 }
 /* sezione di ricerca */
 .left_col .cerca{
+  background-color: #eaeaea;
   height: 50px;
-  background-color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.left_col .cerca .barra_ricerca{
+  height: 50%;
+  width: 90%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+.left_col .cerca .barra_ricerca label{
+  color: #b1b1b1
+}
+.left_col .cerca .barra_ricerca input{
+  border: 0px;
+  margin-left: 20px;
+  width: 100%;
 }
 /* lista contatti */
 .left_col .contatti{
   height: calc(100% - 190px);
 }
-.left_col ul.lista_contatti{
-  height: 95%;
-  overflow-y: hidden;
+.left_col .contatti ul.lista_contatti{
+  height: 100%;
+  overflow-y: auto;
+}
+.left_col .contatti ul.lista_contatti li{
+  height: 70px;
+  border-bottom: 1px solid #b1b1b1;
 }
 
 /*PARTE DESTRA*/
