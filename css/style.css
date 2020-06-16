@@ -8,9 +8,10 @@ ul{
   list-style: none;
 }
 img{
-  height: 90%;
+  height: 80%;
   border-radius: 50%;
 }
+
 /*clearfix*/
 .clearfix::after{
   content: '';
@@ -49,6 +50,19 @@ main{
   background-color: white;
   background-image: url(../img/mine.jpg);
 }
+/*regole riutilizzate per header e lista chat*/
+.chat_corrente{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.dettagli{
+  margin-left: 15px;
+}
+.chat_corrente .dettagli p{
+  color: #b1b1b1;
+  font-size: 17px;
+}
 /* colonne */
 .col{
   float: left;
@@ -84,18 +98,7 @@ main{
   color:#b1b1b1;
   font-size: 20px;
 }
-.header .chat_corrente{
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-.header .chat_corrente .dettagli{
-  margin-left: 15px;
-}
-.header .chat_corrente .dettagli p{
-  color: #b1b1b1;
-  font-size: 17px;
-}
+
 /*PARTE SINISTRA*/
 /* notifiche */
 .left_col .notifiche{
@@ -157,14 +160,36 @@ main{
 .left_col .contatti ul.lista_contatti li{
   height: 70px;
   border-bottom: 1px solid #b1b1b1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left_col .contatti ul.lista_contatti img{
+  margin-left: 20px;
+}
+.left_col .contatti ul.lista_contatti span{
+  margin-right: 10px;
+  color: #b1b1b1;
 }
 
 /*PARTE DESTRA*/
 .right_col .chat{
   height: calc(100% - 140px);
-
 }
-.text_zone{
+.right_col .text_zone{
   height: 70px;
   background-color: #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.right_col .text_zone span{
+  font-size: 30px;
+  margin: 0 20px;
+}
+.right_col .text_zone input{
+  width: 100%;
+  height: 50%;
+  border: 0;
+  padding: 0 10px;
 }
