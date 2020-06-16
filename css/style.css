@@ -7,6 +7,10 @@
 ul{
   list-style: none;
 }
+img{
+  height: 90%;
+  border-radius: 50%;
+}
 /*clearfix*/
 .clearfix::after{
   content: '';
@@ -38,14 +42,10 @@ ul{
   position:relative;
   z-index: 1;
 }
-/* HEADER applicazione */
-header{
-  height: 70px;
-  background-color: #eaeaea;
-}
+
 /* MAIN dell'applicazione */
 main{
-  height: calc(100% - 70px);
+  height:100%;
   background-color: white;
   background-image: url(../img/mine.jpg);
 }
@@ -56,12 +56,45 @@ main{
 .left_col{
   height: 100%;
   width: 30%;
-  background-color: red;
+  background-color: white;
 }
 .right_col{
   height: 100%;
   width: 70%;
   background-image: url(../img/mine.jpg);
+}
+/* HEADER applicazione */
+.header{
+  height: 70px;
+  padding-left: 10px;
+  background-color: #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header_left{
+  border-right: 1px solid #b1b1b1;
+}
+.header ul{
+  display: flex;
+  align-items: center;
+}
+.header ul li{
+  margin-right: 10px;
+  color:#b1b1b1;
+  font-size: 20px;
+}
+.header .chat_corrente{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.header .chat_corrente .dettagli{
+  margin-left: 15px;
+}
+.header .chat_corrente .dettagli p{
+  color: #b1b1b1;
+  font-size: 17px;
 }
 /*PARTE SINISTRA*/
 /* notifiche */
@@ -76,8 +109,7 @@ main{
 }
 /* lista contatti */
 .left_col .contatti{
-  background-color: green;
-  height: calc(100% - 120px);
+  height: calc(100% - 190px);
 }
 .left_col ul.lista_contatti{
   height: 95%;
@@ -86,7 +118,7 @@ main{
 
 /*PARTE DESTRA*/
 .right_col .chat{
-  height: calc(100% - 70px);
+  height: calc(100% - 140px);
 
 }
 .text_zone{
