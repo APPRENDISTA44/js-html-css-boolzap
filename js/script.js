@@ -10,6 +10,17 @@ $(document).ready(function() {
     }
   });
 
+ //quando premo sulla zona del testo cambia icona
+  $('#text').focusin(function () {
+    $('span.invio').toggleClass('hidden');
+    $('span.audio').toggleClass('hidden');
+  });
+  
+  $('#text').focusout(function () {
+    $('span.invio').toggleClass('hidden');
+    $('span.audio').toggleClass('hidden');
+  })
+
   $('#search').keyup(function (event) {
     // console.log($('#search').val());
   ricerca();
