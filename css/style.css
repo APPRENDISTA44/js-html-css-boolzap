@@ -11,12 +11,7 @@ img{
   height: 80%;
   border-radius: 50%;
 }
-.hidden{
-  display: none;
-}
-.active{
-  display: block;
-}
+
 /*clearfix*/
 .clearfix::after{
   content: '';
@@ -163,7 +158,7 @@ main{
   height: 100%;
   overflow-y: auto;
 }
-.left_col .contatti ul.lista_contatti li{
+.elemento_lista{
   height: 70px;
   border-bottom: 1px solid #b1b1b1;
   display: flex;
@@ -234,4 +229,11 @@ main{
 }
 .template p{
   word-wrap: break-word;
+}
+/*hidden e active*/
+.hidden{
+  display: none;
+}
+.active{
+  display: block;
 }
