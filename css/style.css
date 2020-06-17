@@ -175,8 +175,11 @@ main{
 }
 
 /*PARTE DESTRA*/
-.right_col .chat{
+.right_col .chat_window{
   height: calc(100% - 140px);
+}
+.right_col .chat{
+  height: 100%;
   overflow-y: auto;
   padding: 0 30px;
 }
@@ -230,6 +233,29 @@ main{
 }
 .template p{
   word-wrap: break-word;
+}
+.template span.option{
+  position: absolute;
+  right: 5px;
+  top : 20%;
+  font-size: 15px;
+  display: none;
+  cursor: pointer;
+}
+.template_white:hover span.option,
+.template_green:hover span.option{
+  display: inline-block;
+}
+.template ul.dropdown{
+  padding: 0 15px;
+  background-color: white;
+  position: absolute;
+  right: 5px;
+  top : 100%;
+  box-shadow:0px 0px 7px #020108;
+}
+.template ul.dropdown li{
+  margin: 15px;
 }
 /*hidden e active*/
 .hidden{

@@ -7,7 +7,7 @@ $(document).ready(function() {
     $('span.audio').removeClass('hidden');
   });
   $('#text').keypress(function (event) {
-    if (event.which == 13) {
+    if (event.which == 13 && $('#text').val() != '') {
       scrittura();
     }
   });
@@ -17,7 +17,7 @@ $(document).ready(function() {
     $('span.invio').removeClass('hidden');
     $('span.audio').addClass('hidden');
   });
-
+//quando esco se il testo è vuoto toena l'icona audio
   $('#text').focusout(function () {
     if ($('#text').val() == '') {
       $('span.invio').addClass('hidden');
@@ -25,10 +25,14 @@ $(document).ready(function() {
     }
 
   })
-
+  //gestisco ricerca chat
   $('#search').keyup(function (event) {
-    // console.log($('#search').val());
   ricerca();
+  });
+  //gestisco cancellazione messaggio
+  $(document).on('click','span.option',
+  function () {
+    $(this).siblings('ul.dropdown').toggleClass('hidden')
   });
 
 
