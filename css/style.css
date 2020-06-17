@@ -169,6 +169,7 @@ main{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 .left_col .contatti ul.lista_contatti img{
   margin-left: 20px;
@@ -203,7 +204,9 @@ main{
   padding: 0 10px;
 }
 /*TEMPLATE*/
-
+.template{
+  margin-top:5px;
+}
 .template_green{
   background-color: #d5f9ba;
   float: right;
@@ -228,4 +231,7 @@ main{
   right: 5px;
   font-size: 14px;
   color: #b1b1b1;
+}
+.template p{
+  word-wrap: break-word;
 }

@@ -18,6 +18,20 @@ $(document).ready(function() {
     console.log(cloneVerde);
     console.log(cloneVerde.find('p').text());
     cloneVerde.find('p').text(testo);
-    $('div.chat').append(cloneVerde);
+    $('div.chat.active').append(cloneVerde);
+    $('#text').val('');
+    risposta();
   }
   });
+
+
+  //funzione di risposta
+  function risposta() {
+    setTimeout(function() {
+      var cloneBianco = $('.riutilizzabili .template.white').clone();
+      cloneBianco.removeClass('hidden');
+      cloneBianco.find('p').text('ok');
+      $('div.chat.active').append(cloneBianco);
+    },1000)
+
+  }
