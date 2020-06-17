@@ -3,6 +3,8 @@ $(document).ready(function() {
   $(document).on('click','span.invio',
   function () {
     scrittura();
+    $('span.invio').addClass('hidden');
+    $('span.audio').removeClass('hidden');
   });
   $('#text').keypress(function (event) {
     if (event.which == 13) {
