@@ -247,6 +247,7 @@ main{
   display: inline-block;
 }
 .template ul.dropdown{
+  min-width: 165px;
   padding: 0 15px;
   background-color: white;
   position: absolute;
@@ -256,6 +257,7 @@ main{
 }
 .template ul.dropdown li{
   margin: 15px;
+  cursor: pointer;
 }
 /*hidden e active*/
 .hidden{

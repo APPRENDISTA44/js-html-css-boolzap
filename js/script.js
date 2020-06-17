@@ -34,6 +34,11 @@ $(document).ready(function() {
   function () {
     $(this).siblings('ul.dropdown').toggleClass('hidden')
   });
+  $(document).on('click','li.delete',
+  function () {
+    console.log('cancello neee');
+    $(this).parents('.template').remove();
+  });
 
 
   //funzione di scrittura
