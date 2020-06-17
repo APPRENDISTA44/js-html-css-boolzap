@@ -221,7 +221,7 @@ main{
   padding: 15px 80px 15px 10px;
 
 }
-.template span{
+.template span.ultimo_accesso{
   position: absolute;
   bottom: 0;
   right: 5px;

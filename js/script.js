@@ -12,21 +12,21 @@ $(document).ready(function() {
 
  //quando premo sulla zona del testo cambia icona
   $('#text').focusin(function () {
-    $('span.invio').toggleClass('hidden');
-    $('span.audio').toggleClass('hidden');
+    $('span.invio').removeClass('hidden');
+    $('span.audio').addClass('hidden');
   });
-  
+
   $('#text').focusout(function () {
-    $('span.invio').toggleClass('hidden');
-    $('span.audio').toggleClass('hidden');
+    if ($('#text').val() == '') {
+      $('span.invio').addClass('hidden');
+      $('span.audio').removeClass('hidden');
+    }
+
   })
 
   $('#search').keyup(function (event) {
     // console.log($('#search').val());
   ricerca();
-
-
-
   });
 
 
