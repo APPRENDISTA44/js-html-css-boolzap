@@ -17,7 +17,7 @@ $(document).ready(function() {
     $('span.invio').removeClass('hidden');
     $('span.audio').addClass('hidden');
   });
-//quando esco se il testo è vuoto toena l'icona audio
+//quando esco se il testo è vuoto torna l'icona audio
   $('#text').focusout(function () {
     if ($('#text').val() == '') {
       $('span.invio').addClass('hidden');
@@ -33,8 +33,10 @@ $(document).ready(function() {
   $(document).on('click','span.option',
   function () {
     $(this).siblings('ul.dropdown').toggleClass('hidden')
+    //quando clicco per una dropdown le altre scompaiono
+    $(this).parents('.template').siblings('.template').find('.dropdown').addClass('hidden');
 
-    
+
   });
   $(document).on('click','li.delete',
   function () {
