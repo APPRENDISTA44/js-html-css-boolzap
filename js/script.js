@@ -100,6 +100,8 @@ function () {
 
   //funzione di risposta
   function risposta(chat) {
+    $('.header_right .accesso').toggleClass('hidden');
+    $('.header_right .scrive').toggleClass('hidden');
     setTimeout(function() {
       var testo = 'ok'
       var cloneBianco = $('.riutilizzabili .template.white').clone();
@@ -115,7 +117,12 @@ function () {
       $('.elemento_lista.selected').find('.ultimo_accesso').text(catturaData());
       //cambio ora anche nella lista chat
       $('.elemento_lista.selected').find('.ultimo_accesso').text(catturaData());
-    },1000)
+      // cambio ora in header
+      $('.header_right .accesso').toggleClass('hidden');
+      $('.header_right .scrive').toggleClass('hidden');
+      $('.header_right .ultimo_accesso').text(catturaData());
+
+    },1000);
   }
 
   //funzione di ricerca
