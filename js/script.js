@@ -36,12 +36,36 @@ $(document).ready(function() {
     //quando clicco per una dropdown le altre scompaiono
     $(this).parents('.template').siblings('.template').find('.dropdown').addClass('hidden');
 
-
   });
   $(document).on('click','li.delete',
   function () {
     $(this).parents('.template').remove();
   });
+
+//gestisco visualizzazione chat
+$(document).on('click','li.elemento_lista',
+function () {
+  //cambio colore nella lista per evidenziare chat corrente
+  $(this).addClass('selected');
+  $(this).siblings('li').removeClass('selected');
+  //gestisco logica per fare apparire la chat giusta
+  var dataContact = $(this).attr('data-contact');
+  console.log(dataContact);
+  var selettore = '.chat_window div[data-chat="' + dataContact +'"]'
+  console.log($(selettore));
+  $(selettore).siblings('.chat.active').removeClass('active');
+  $(selettore).addClass('active');
+  //gestisco logica per fare apparire in alto dati persona selezionata
+  var immagine = $(this).find('img').attr('src');
+  var nome = $(this).find('.nome').text();
+  var ultimo_accesso = $(this).find('.ultimo_accesso').text();
+  $('.header_right img').attr('src',immagine);
+  $('.header_right .nome').text(nome);
+  $('.header_right .ultimo_accesso').text(ultimo_accesso);
+});
+
+
+
 
   //funzione di scrittura
   function scrittura() {
@@ -57,6 +81,9 @@ $(document).ready(function() {
     $('#text').val('');
     risposta();
     $('div.chat.active').scrollTop($('div.chat.active').height());
+    //cambio ora anche nella lista chat
+    $('.elemento_lista.selected').find('.ultimo_accesso').text(catturaData());
+
   }
 
 
@@ -70,6 +97,9 @@ $(document).ready(function() {
       cloneBianco.find('.ultimo_accesso').text(catturaData());
       $('div.chat.active').append(cloneBianco);
       $('div.chat.active').scrollTop($('div.chat.active').height());
+      $('.elemento_lista.selected').find('.ultimo_accesso').text(catturaData());
+      //cambio ora anche nella lista chat
+      $('.elemento_lista.selected').find('.ultimo_accesso').text(catturaData());
     },1000)
   }
 
