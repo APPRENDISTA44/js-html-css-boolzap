@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+
   //eventi di invio messaggi
   $(document).on('click','span.invio',
   function () {
@@ -39,17 +39,17 @@ $(document).ready(function() {
 
   });
   //oltre a eliminare il messaggio, controllo se è l'ultimo, in tal caso aggiorno anche
-  //l'ultimo messaggio nella lista chat
+  //l'ultimo messaggio nella lista chat e il suo orario
   $(document).on('click','li.delete',
   function () {
     var chatAttuale = $(this).parents('.chat').attr('data-chat');
     var controlloUltimoMessaggio = $('ul.lista_contatti li[data-contact="' + chatAttuale +'"]').find('.last_message');
     $(this).parents('.template').remove();
     var nuovoUltimoMessaggio = $('.chat.active').children('.template:last-child').find('.contenuto').text();
-    $('ul.lista_contatti li[data-contact="' + chatAttuale +'"]').find('.last_message').text(nuovoUltimoMessaggio);
-    console.log(chatAttuale);
-    console.log(controlloUltimoMessaggio);
-    console.log(nuovoUltimoMessaggio);
+    var nuovoUltimoAccesso = $('.chat.active').children('.template:last-child').find('.ultimo_accesso').text();
+    var selettore = $('ul.lista_contatti li[data-contact="' + chatAttuale +'"]');
+    selettore.find('.last_message').text(nuovoUltimoMessaggio);
+    selettore.find('.ultimo_accesso').text(nuovoUltimoAccesso);
   });
 
 //gestisco visualizzazione chat
