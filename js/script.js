@@ -114,15 +114,14 @@ function () {
       //cambio ultimo messaggio
       $('ul.lista_contatti li[data-contact="' + chat +'"]').find('.last_message').text(testo);
       $(chatAttuale).scrollTop($(chatAttuale).height());
-      $('.elemento_lista.selected').find('.ultimo_accesso').text(catturaData());
       //cambio ora anche nella lista chat
-      $('.elemento_lista.selected').find('.ultimo_accesso').text(catturaData());
+      $('ul.lista_contatti li[data-contact="' + chat +'"]').find('.ultimo_accesso').text(catturaData());
       // cambio ora in header
       $('.header_right .accesso').toggleClass('hidden');
       $('.header_right .scrive').toggleClass('hidden');
       $('.header_right .ultimo_accesso').text(catturaData());
 
-    },1000);
+    },3000);
   }
 
   //funzione di ricerca
