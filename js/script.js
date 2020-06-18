@@ -55,6 +55,9 @@ $(document).ready(function() {
 //gestisco visualizzazione chat
 $(document).on('click','li.elemento_lista',
 function () {
+  //se cambio chat velocemente prima che finisca l'evento di risposta non mostro sta scrivendo nella chat sbagliata
+  $('.header_right .scrive').addClass('hidden');
+  $('.header_right .accesso').removeClass('hidden');
   //cambio colore nella lista per evidenziare chat corrente
   $(this).addClass('selected');
   $(this).siblings('li').removeClass('selected');
@@ -91,17 +94,20 @@ function () {
     //cambio ultimo messaggio
     $('ul.lista_contatti li[data-contact="' + chatAttuale +'"]').find('.last_message').text(testo);
     $('#text').val('');
-    risposta(chatAttuale);
     $('div.chat.active').scrollTop($('div.chat.active').height());
     //cambio ora anche nella lista chat
     $('.elemento_lista.selected').find('.ultimo_accesso').text(catturaData());
-
+    // cambio ora in header
+    $('.header_right .ultimo_accesso').text(catturaData());
+    //avvio risposta
+    risposta(chatAttuale);
   }
 
   //funzione di risposta
   function risposta(chat) {
-    $('.header_right .accesso').toggleClass('hidden');
-    $('.header_right .scrive').toggleClass('hidden');
+    //mentre scrive compare scritta
+    $('.header_right .accesso').addClass('hidden');
+    $('.header_right .scrive').removeClass('hidden');
     setTimeout(function() {
       var testo = 'ok'
       var cloneBianco = $('.riutilizzabili .template.white').clone();
@@ -116,12 +122,11 @@ function () {
       $(chatAttuale).scrollTop($(chatAttuale).height());
       //cambio ora anche nella lista chat
       $('ul.lista_contatti li[data-contact="' + chat +'"]').find('.ultimo_accesso').text(catturaData());
-      // cambio ora in header
-      $('.header_right .accesso').toggleClass('hidden');
-      $('.header_right .scrive').toggleClass('hidden');
-      $('.header_right .ultimo_accesso').text(catturaData());
+      // finisce di scrivere header
+      $('.header_right .accesso').removeClass('hidden');
+      $('.header_right .scrive').addClass('hidden');
 
-    },3000);
+    },1000);
   }
 
   //funzione di ricerca
