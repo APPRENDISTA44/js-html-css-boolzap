@@ -40,6 +40,7 @@ $(document).ready(function() {
   $(document).on('click','li.delete',
   function () {
     $(this).parents('.template').remove();
+    
   });
 
 //gestisco visualizzazione chat
@@ -70,33 +71,38 @@ function () {
   //funzione di scrittura
   function scrittura() {
     var testo = $('#text').val();
-    console.log(testo);
     var cloneVerde = $('.riutilizzabili .template.green').clone();
     cloneVerde.removeClass('hidden');
     console.log(cloneVerde);
     console.log(cloneVerde.find('p').text());
     cloneVerde.find('p').text(testo);
     cloneVerde.find('.ultimo_accesso').text(catturaData());
+    var chatAttuale = $('div.chat.active').attr('data-chat');
     $('div.chat.active').append(cloneVerde);
+    //cambio ultimo messaggio
+    $('ul.lista_contatti li[data-contact="' + chatAttuale +'"]').find('.last_message').text(testo);
     $('#text').val('');
-    risposta();
+    risposta(chatAttuale);
     $('div.chat.active').scrollTop($('div.chat.active').height());
     //cambio ora anche nella lista chat
     $('.elemento_lista.selected').find('.ultimo_accesso').text(catturaData());
 
   }
 
-
-
   //funzione di risposta
-  function risposta() {
+  function risposta(chat) {
     setTimeout(function() {
+      var testo = 'ok'
       var cloneBianco = $('.riutilizzabili .template.white').clone();
       cloneBianco.removeClass('hidden');
-      cloneBianco.find('p').text('ok');
+      cloneBianco.find('p').text(testo);
       cloneBianco.find('.ultimo_accesso').text(catturaData());
-      $('div.chat.active').append(cloneBianco);
-      $('div.chat.active').scrollTop($('div.chat.active').height());
+      //rispondo alla chat corretta
+      var chatAttuale = '.chat_window div[data-chat="' + chat +'"]';
+      $(chatAttuale).append(cloneBianco);
+      //cambio ultimo messaggio
+      $('ul.lista_contatti li[data-contact="' + chat +'"]').find('.last_message').text(testo);
+      $(chatAttuale).scrollTop($(chatAttuale).height());
       $('.elemento_lista.selected').find('.ultimo_accesso').text(catturaData());
       //cambio ora anche nella lista chat
       $('.elemento_lista.selected').find('.ultimo_accesso').text(catturaData());
