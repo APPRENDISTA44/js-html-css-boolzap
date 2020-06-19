@@ -100,7 +100,6 @@ function () {
     var cloneVerde = $('.riutilizzabili .template.green').clone();
     cloneVerde.removeClass('hidden');
     console.log(cloneVerde);
-    console.log(cloneVerde.find('p').text());
     cloneVerde.find('p').text(testo);
     cloneVerde.find('.ultimo_accesso').text(catturaData());
     var chatAttuale = $('div.chat.active').attr('data-chat');
@@ -114,16 +113,27 @@ function () {
     // cambio ora in header
     $('.header_right .ultimo_accesso').text(catturaData());
     //avvio risposta
-    risposta(chatAttuale);
+    risposta(chatAttuale,testo);
   }
 
   //funzione di risposta
-  function risposta(chat) {
+  function risposta(chat,testoMessaggio) {
     //mentre scrive compare scritta
     $('.header_right .accesso').addClass('hidden');
     $('.header_right .scrive').removeClass('hidden');
     setTimeout(function() {
-      var testo = 'ok'
+      //variabile che contiene risposta
+      var testo;
+      //creo dei messaggi personalizzati
+      testoMessaggio = testoMessaggio.toLowerCase();
+      if (testoMessaggio.includes("come stai")) {
+        testo = "Bene e tu?";
+      }else if (testoMessaggio.includes("che fai")) {
+        testo = "niente e tu?"
+      }else {
+        testo = 'ok';
+      }
+
       var cloneBianco = $('.riutilizzabili .template.white').clone();
       cloneBianco.removeClass('hidden');
       cloneBianco.find('p').text(testo);
