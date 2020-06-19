@@ -49,7 +49,6 @@ img{
 main{
   height:100%;
   background-color: white;
-  background-image: url(../img/mine.jpg);
 }
 /*regole riutilizzate per header e lista chat*/
 .chat_corrente{
