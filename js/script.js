@@ -1,4 +1,18 @@
 $(document).ready(function() {
+  //quando carico la pagina visualizzo nell'header orario ultimo accesso corretto
+  // basato su orario ultimo messaggio ricevuto
+  var ultimoAccesso = $('.chat.active').children('.template:last-child').find('.ultimo_accesso').text();
+  $('.header_right .ultimo_accesso').text(ultimoAccesso);
+  //quando carico la pagina visualizzo nella lista della chat gli ultimi messaggi
+  $('ul.lista_contatti li.elemento_lista').each(function () {
+    var chatAttuale = $(this).attr('data-contact');
+    var selettore = '.chat_window .chat[data-chat="'+chatAttuale+'"]';
+    var ultimoMessaggio = $(selettore).children('.template:last-child');
+    // cambio il testo
+    $(this).find('.last_message').text((ultimoMessaggio).find('.contenuto').text());
+    //cambio ora
+    $(this).find('.ultimo_accesso').text((ultimoMessaggio).find('.ultimo_accesso').text());
+  });
 
   //eventi di invio messaggi
   $(document).on('click','span.invio',
@@ -43,7 +57,7 @@ $(document).ready(function() {
   $(document).on('click','li.delete',
   function () {
     var chatAttuale = $(this).parents('.chat').attr('data-chat');
-    var controlloUltimoMessaggio = $('ul.lista_contatti li[data-contact="' + chatAttuale +'"]').find('.last_message');
+    // var controlloUltimoMessaggio = $('ul.lista_contatti li[data-contact="' + chatAttuale +'"]').find('.last_message');
     $(this).parents('.template').remove();
     var nuovoUltimoMessaggio = $('.chat.active').children('.template:last-child').find('.contenuto').text();
     var nuovoUltimoAccesso = $('.chat.active').children('.template:last-child').find('.ultimo_accesso').text();
@@ -94,7 +108,7 @@ function () {
     //cambio ultimo messaggio
     $('ul.lista_contatti li[data-contact="' + chatAttuale +'"]').find('.last_message').text(testo);
     $('#text').val('');
-    $('div.chat.active').scrollTop($('div.chat.active').height());
+    $('div.chat.active').scrollTop($('div.chat.active').prop('scrollHeight'));
     //cambio ora anche nella lista chat
     $('.elemento_lista.selected').find('.ultimo_accesso').text(catturaData());
     // cambio ora in header
@@ -119,7 +133,7 @@ function () {
       $(chatAttuale).append(cloneBianco);
       //cambio ultimo messaggio
       $('ul.lista_contatti li[data-contact="' + chat +'"]').find('.last_message').text(testo);
-      $(chatAttuale).scrollTop($(chatAttuale).height());
+      $(chatAttuale).scrollTop($(chatAttuale).prop('scrollHeight'));
       //cambio ora anche nella lista chat
       $('ul.lista_contatti li[data-contact="' + chat +'"]').find('.ultimo_accesso').text(catturaData());
       // finisce di scrivere header
