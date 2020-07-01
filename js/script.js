@@ -17,12 +17,14 @@ $(document).ready(function() {
   //eventi di invio messaggi
   $(document).on('click','span.invio',
   function () {
-    scrittura();
-    $('span.invio').addClass('hidden');
-    $('span.audio').removeClass('hidden');
+    if ($('#text').val().trim() != '') {
+      scrittura();
+      $('span.invio').addClass('hidden');
+      $('span.audio').removeClass('hidden');
+    }
   });
   $('#text').keypress(function (event) {
-    if (event.which == 13 && $('#text').val() != '') {
+    if (event.which == 13 && $('#text').val().trim() != '') {
       scrittura();
     }
   });
